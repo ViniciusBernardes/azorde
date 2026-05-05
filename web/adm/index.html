@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administração — AZORDE Estúdio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="adm-login" class="adm-login">
+      <div class="adm-login__card">
+        <h1 class="adm-h1">Acesso administrativo</h1>
+        <p class="adm-sub">AZORDE Estúdio — cursos e inscrições</p>
+        <div id="login-msg" class="adm-msg adm-msg--err" hidden></div>
+        <form id="form-login">
+          <div class="adm-field">
+            <label for="user">Usuário</label>
+            <input id="user" name="username" type="text" autocomplete="username" required />
+          </div>
+          <div class="adm-field">
+            <label for="pass">Senha</label>
+            <input id="pass" name="password" type="password" autocomplete="current-password" required />
+          </div>
+          <button type="submit" class="adm-btn">Entrar</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="adm-app" class="adm-app" hidden>
+      <header class="adm-top">
+        <div>
+          <h1 class="adm-h1">Painel</h1>
+          <p class="adm-sub" id="adm-user-label"></p>
+        </div>
+        <div class="adm-nav">
+          <button type="button" id="tab-alunos" class="is-active">Alunos</button>
+          <button type="button" id="tab-cursos">Cursos</button>
+          <button type="button" id="btn-logout" class="adm-btn adm-btn--ghost">Sair</button>
+        </div>
+      </header>
+
+      <div id="app-msg" class="adm-msg" hidden></div>
+
+      <section id="panel-alunos" class="adm-panel">
+        <details class="adm-novo-aluno" id="adm-novo-aluno">
+          <summary class="adm-novo-aluno__summary">Cadastrar aluno manualmente</summary>
+          <form id="form-novo-aluno" class="adm-novo-aluno__form">
+            <div class="adm-novo-aluno__grid">
+              <div class="adm-field adm-field--span-full">
+                <label for="novo-aluno-curso-turma">Curso e turma</label>
+                <select id="novo-aluno-curso-turma" name="cursoTurma" required>
+                  <option value="">Carregando cursos cadastrados…</option>
+                </select>
+                <p class="adm-field-hint">
+                  Opções vindas do cadastro na aba Cursos (cada turma aparece no grupo do respectivo curso).
+                </p>
+              </div>
+              <div class="adm-field">
+                <label for="novo-aluno-nome">Nome completo</label>
+                <input id="novo-aluno-nome" name="nome" type="text" required autocomplete="name" />
+              </div>
+              <div class="adm-field">
+                <label for="novo-aluno-telefone">Telefone (WhatsApp)</label>
+                <input id="novo-aluno-telefone" name="telefone" type="tel" required minlength="8" autocomplete="tel" />
+              </div>
+              <div class="adm-field">
+                <label for="novo-aluno-email">E-mail</label>
+                <input id="novo-aluno-email" name="email" type="email" required autocomplete="email" />
+              </div>
+              <div class="adm-field">
+                <label for="novo-aluno-pix">Chave Pix (opcional)</label>
+                <input id="novo-aluno-pix" name="pixKey" type="text" maxlength="64" placeholder="Deixe em branco se não houver" />
+              </div>
+            </div>
+            <div class="adm-checkbox-row">
+              <input id="novo-aluno-confirmado" name="confirmado" type="checkbox" />
+              <label for="novo-aluno-confirmado" class="adm-checkbox-row__label">
+                Vaga já confirmada
+                <span class="adm-checkbox-row__sub"
+                  >Conta nas vagas do site como ocupada (equivalente a “Confirmar pagamento” na lista).</span>
+              </label>
+            </div>
+            <div class="adm-novo-aluno__actions">
+              <button type="submit" class="adm-btn adm-btn--primary">Salvar aluno</button>
+            </div>
+          </form>
+        </details>
+        <div class="adm-alunos-filters" id="adm-alunos-filters">
+          <div class="adm-field adm-field--inline">
+            <label for="filter-curso">Curso</label>
+            <select id="filter-curso" aria-label="Filtrar por curso">
+              <option value="">Todos os cursos</option>
+            </select>
+          </div>
+          <div class="adm-field adm-field--inline">
+            <label for="filter-turma">Turma</label>
+            <select id="filter-turma" aria-label="Filtrar por turma">
+              <option value="">Todas as turmas</option>
+            </select>
+          </div>
+        </div>
+        <div class="adm-table-wrap">
+          <table class="adm-table">
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Nome</th>
+                <th>Contato</th>
+                <th>Curso / turma</th>
+                <th>Confirmado</th>
+                <th>Anexo</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-alunos"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="panel-cursos" class="adm-panel" hidden>
+        <p class="adm-sub">Gerencie cursos, vagas, imagens e turmas (datas e horários).</p>
+        <button type="button" id="btn-novo-curso" class="adm-btn" style="margin-bottom: 1rem">Novo curso</button>
+        <div id="curso-form-host" class="adm-form-host" hidden></div>
+        <div id="lista-cursos"></div>
+      </section>
+    </div>
+
+    <div
+      id="modal-excluir-aluno"
+      class="adm-modal"
+      hidden
+      aria-hidden="true"
+    >
+      <div class="adm-modal__backdrop" data-modal-dismiss tabindex="-1"></div>
+      <div
+        class="adm-modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-excluir-aluno-title"
+      >
+        <h2 id="modal-excluir-aluno-title" class="adm-modal__title">Excluir inscrição</h2>
+        <p class="adm-modal__text" id="modal-excluir-aluno-msg"></p>
+        <div class="adm-modal__actions">
+          <button type="button" class="adm-btn adm-btn--ghost" data-modal-dismiss>Cancelar</button>
+          <button type="button" class="adm-btn adm-btn--danger" id="modal-excluir-aluno-confirm">
+            Excluir
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        if (window.AZORDE_API_BASE) return;
+        var p = window.location.protocol;
+        var host = window.location.hostname;
+        var port = window.location.port;
+        if (p === "file:") {
+          window.AZORDE_API_BASE = "http://localhost:3000";
+        } else if (port && port !== "80" && port !== "443") {
+          window.AZORDE_API_BASE = window.location.protocol + "//" + host + ":3000";
+        } else {
+          window.AZORDE_API_BASE = window.location.origin + "/api";
+        }
+      })();
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>

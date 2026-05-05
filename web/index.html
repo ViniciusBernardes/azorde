@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AZORDE Estúdio — cerâmica artesanal, peças para mesa e decoração, e cursos de olaria. Alta temperatura, acabamento mineral e envio para todo o Brasil."
+    />
+    <title>AZORDE Estúdio — Cerâmica artesanal e cursos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo</a>
+
+    <div class="top-bar">
+      <div class="container top-bar__inner">
+        <span class="top-bar__tag">Montes Claros · MG</span>
+        <a href="#contato" class="top-bar__link top-bar__link--emphasis">Fale conosco</a>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container site-header__row">
+        <button
+          type="button"
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="menu-principal"
+          aria-label="Abrir menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <a href="/" class="logo" aria-label="AZORDE Estúdio — Página inicial">
+          <img
+            class="logo__img"
+            src="assets/logo-azorde-estudio.png"
+            width="126"
+            height="35"
+            alt="AZORDE Estúdio"
+          />
+        </a>
+
+        <nav class="main-nav" id="menu-principal" aria-label="Menu principal">
+          <ul class="main-nav__list">
+            <li><a href="#sobre">Sobre mim</a></li>
+            <li><a href="#vale-presente">Vale presente</a></li>
+            <li><a href="#cursos">Oficinas</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <a
+            href="#pecas-catalogo"
+            class="header-actions__icon"
+            aria-label="Buscar no catálogo de produtos"
+            hidden
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+            </svg>
+          </a>
+          <a href="#login" class="header-actions__icon" aria-label="Minha conta">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </a>
+          <a href="#carrinho" class="header-actions__icon header-actions__icon--cart" aria-label="Carrinho, 2 itens">
+            <span class="header-actions__badge" aria-hidden="true">2</span>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="9" cy="21" r="1" />
+              <circle cx="20" cy="21" r="1" />
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="conteudo-principal">
+      <section class="hero" aria-labelledby="hero-title" hidden>
+        <div class="container hero__grid">
+          <div class="hero__content">
+            <p class="hero__eyebrow">Cerâmica artesanal · alta temperatura</p>
+            <h1 id="hero-title" class="hero__title">
+              Peças feitas à mão e cursos para quem ama argila, mesa bem posta e o ofício
+            </h1>
+            <p class="hero__lead">
+              Objetos utilitários e de decoração com esmaltes minerais, além de turmas presenciais e online no AZORDE Estúdio.
+            </p>
+            <div class="hero__actions">
+              <a href="#lancamentos" class="btn btn--primary">Ver peças</a>
+              <a href="#cursos" class="btn btn--outline">Ver cursos</a>
+            </div>
+          </div>
+          <div class="hero__visual" aria-hidden="true">
+            <div class="hero__shape"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="cats-title" hidden>
+        <div class="container">
+          <div class="section__head">
+            <h2 id="cats-title" class="section__title">O que você encontra aqui</h2>
+            <p class="section__subtitle">Peças prontas para uso, presentes e formações no estúdio — no ritmo do fazer manual.</p>
+          </div>
+          <div class="cat-grid">
+            <a href="#mesa" class="cat-card" id="mesa">
+              <span class="cat-card__icon">◎</span>
+              <span class="cat-card__name">Mesa &amp; cozinha</span>
+            </a>
+            <a href="#cha" class="cat-card" id="cha">
+              <span class="cat-card__icon">◇</span>
+              <span class="cat-card__name">Chá &amp; ritual</span>
+            </a>
+            <a href="#decoracao" class="cat-card" id="decoracao">
+              <span class="cat-card__icon">△</span>
+              <span class="cat-card__name">Decoração</span>
+            </a>
+            <a href="#lancamentos" class="cat-card">
+              <span class="cat-card__icon">◈</span>
+              <span class="cat-card__name">Presentes &amp; kits</span>
+            </a>
+            <a href="#mais-vendidos" class="cat-card">
+              <span class="cat-card__icon">◐</span>
+              <span class="cat-card__name">Edições limitadas</span>
+            </a>
+            <a href="#cursos" class="cat-card">
+              <span class="cat-card__icon">⌁</span>
+              <span class="cat-card__name">Cursos presenciais</span>
+            </a>
+            <a href="#cursos" class="cat-card">
+              <span class="cat-card__icon">▢</span>
+              <span class="cat-card__name">Cursos online</span>
+            </a>
+            <a href="#promocoes" class="cat-card cat-card--accent" id="promocoes">
+              <span class="cat-card__icon">%</span>
+              <span class="cat-card__name">Promoções</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="process" id="processo" aria-labelledby="processo-title" hidden>
+        <div class="container process__grid">
+          <div class="process__media">
+            <img
+              src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&q=80"
+              alt="Detalhe de peças de cerâmica artesanal em tons terrosos"
+              width="640"
+              height="720"
+              loading="lazy"
+            />
+          </div>
+          <div class="process__content">
+            <h2 id="processo-title" class="process__title">Do barro ao objeto</h2>
+            <p class="process__lead">
+              Cada peça passa por modelagem, secagem, esmaltação e dupla queima em alta temperatura — como em ateliês que honram o tempo da transformação mineral.
+            </p>
+            <p>
+              Trabalhamos com argilas selecionadas e esmaltes à base de minerais, buscando superfícies confortáveis ao toque e formas que acompanhem o dia a dia: mesa posta, chá em silêncio ou um canto da casa que merece uma peça com história.
+            </p>
+            <p class="process__note">
+              Pequenas variações de cor e textura fazem parte do processo manual — são assinaturas, não defeitos.
+            </p>
+            <a href="#sobre" class="link-arrow">Conheça o estúdio</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="lancamentos" aria-labelledby="lanc-title" hidden>
+        <div class="container">
+          <div class="section__head section__head--row">
+            <div>
+              <h2 id="lanc-title" class="section__title">Lançamentos</h2>
+              <p class="section__subtitle">Novas formas e glazes saindo do forno — em tiragens curtas.</p>
+            </div>
+            <a href="#pecas-catalogo" class="link-arrow">Ver catálogo completo</a>
+          </div>
+          <div class="product-grid" id="pecas-catalogo">
+            <article class="product-card">
+              <a href="#p1" class="product-card__media">
+                <img
+                  src="https://images.unsplash.com/photo-1610701596007-115028617604?w=600&q=80"
+                  alt="Três bowls empilhados em cerâmica esmaltada em tons neutros"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                />
+              </a>
+              <div class="product-card__body">
+                <h3 class="product-card__name">
+                  <a href="#p1">Conjunto 3 bowls empilháveis gres</a>
+                </h3>
+                <p class="product-card__sku">Ref. AZ-BWL-SET3</p>
+                <div class="product-card__prices">
+                  <span class="product-card__price">R$ 268,00</span>
+                  <span class="product-card__pix">R$ 254,60 no Pix</span>
+                </div>
+                <button type="button" class="btn btn--buy">Comprar</button>
+              </div>
+            </article>
+            <article class="product-card">
+              <a href="#p2" class="product-card__media">
+                <img
+                  src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=600&q=80"
+                  alt="Xícara de cerâmica artesanal ao lado de folhas secas"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                />
+              </a>
+              <div class="product-card__body">
+                <h3 class="product-card__name">
+                  <a href="#p2">Xícara com pires — esmalte mate mineral</a>
+                </h3>
+                <p class="product-card__sku">Ref. AZ-XIC-PIR-01</p>
+                <div class="product-card__prices">
+                  <span class="product-card__price">R$ 142,00</span>
+                  <span class="product-card__pix">R$ 134,90 no Pix</span>
+                </div>
+                <button type="button" class="btn btn--buy">Comprar</button>
+              </div>
+            </article>
+            <article class="product-card">
+              <a href="#p3" class="product-card__media">
+                <img
+                  src="https://images.unsplash.com/photo-1603561596112-0a132b757442?w=600&q=80"
+                  alt="Jarra de cerâmica com alça em fundo texturizado"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                />
+              </a>
+              <div class="product-card__body">
+                <h3 class="product-card__name">
+                  <a href="#p3">Jarra esculpida 1,2 L — tiragem limitada</a>
+                </h3>
+                <p class="product-card__sku">Ref. AZ-JAR-ESC-12</p>
+                <div class="product-card__prices">
+                  <span class="product-card__price">R$ 198,00</span>
+                  <span class="product-card__pix">R$ 188,10 no Pix</span>
+                </div>
+                <button type="button" class="btn btn--buy">Comprar</button>
+              </div>
+            </article>
+            <article class="product-card">
+              <a href="#p4" class="product-card__media">
+                <img
+                  src="https://images.unsplash.com/photo-1610701596064-9730bb1d9d5?w=600&q=80"
+                  alt="Pratos de cerâmica empilhados em tons claros"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                />
+              </a>
+              <div class="product-card__body">
+                <h3 class="product-card__name">
+                  <a href="#p4">Prato raso coupe 28 cm</a>
+                </h3>
+                <p class="product-card__sku">Ref. AZ-PRA-COU-28</p>
+                <div class="product-card__prices">
+                  <span class="product-card__price">R$ 96,00</span>
+                  <span class="product-card__pix">R$ 91,20 no Pix</span>
+                </div>
+                <button type="button" class="btn btn--buy">Comprar</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="mais-vendidos" aria-labelledby="mv-title" hidden>
+        <div class="container">
+          <div class="section__head section__head--row">
+            <div>
+              <h2 id="mv-title" class="section__title">Mais amados</h2>
+              <p class="section__subtitle">Peças que nossos clientes repetem em presente e na mesa do dia a dia.</p>
+            </div>
+            <a href="#pecas-catalogo" class="link-arrow">Ver catálogo completo</a>
+          </div>
+          <div class="product-grid">
+            <article class="product-card">
+              <a href="#p5" class="product-card__media">
+                <img
+                  src="https://images.unsplash.com/photo-1490312278390-ab64016e0aa9?w=600&q=80"
+                  alt="Par de canecas de cerâmica artesanal"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                />
+              </a>
+              <div class="product-card__body">
+                <h3 class="product-card__name">
+                  <a href="#p5">Par de canecas — feitas à mão</a>
+                </h3>
+                <p class="product-card__sku">Ref. AZ-CNC-PAR-02</p>
+                <div class="product-card__prices">
+                  <span class="product-card__price">R$ 158,00</span>
+                  <span class="product-card__pix">R$ 150,10 no Pix</span>
+                </div>
+                <button type="button" class="btn btn--buy">Comprar</button>
+              </div>
+            </article>
+            <article class="product-card">
+              <a href="#p6" class="product-card__media">
+                <img
+                  src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&q=80"
+                  alt="Vaso de cerâmica torneado em tom terroso"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                />
+              </a>
+              <div class="product-card__body">
+                <h3 class="product-card__name">
+                  <a href="#p6">Vaso torneado M — edição limitada</a>
+                </h3>
+                <p class="product-card__sku">Ref. AZ-VAS-TOR-M</p>
+                <div class="product-card__prices">
+                  <span class="product-card__price">R$ 184,00</span>
+                  <span class="product-card__pix">R$ 174,80 no Pix</span>
+                </div>
+                <button type="button" class="btn btn--buy">Comprar</button>
+              </div>
+            </article>
+            <article class="product-card">
+              <a href="#p7" class="product-card__media">
+                <img
+                  src="https://images.unsplash.com/photo-1603199506016-b7a01e8af17a?w=600&q=80"
+                  alt="Tigela de cerâmica rasa para servir"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                />
+              </a>
+              <div class="product-card__body">
+                <h3 class="product-card__name">
+                  <a href="#p7">Tigela ramen 20 cm — esmalte mineral</a>
+                </h3>
+                <p class="product-card__sku">Ref. AZ-TIG-RAM-20</p>
+                <div class="product-card__prices">
+                  <span class="product-card__price">R$ 112,00</span>
+                  <span class="product-card__pix">R$ 106,40 no Pix</span>
+                </div>
+                <button type="button" class="btn btn--buy">Comprar</button>
+              </div>
+            </article>
+            <article class="product-card">
+              <a href="#p8" class="product-card__media">
+                <img
+                  src="https://images.unsplash.com/photo-1520408220363-231d9c5f2acd?w=600&q=80"
+                  alt="Cachepô de cerâmica com planta"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                />
+              </a>
+              <div class="product-card__body">
+                <h3 class="product-card__name">
+                  <a href="#p8">Cachepô médio para plantas</a>
+                </h3>
+                <p class="product-card__sku">Ref. AZ-CAC-MED-01</p>
+                <div class="product-card__prices">
+                  <span class="product-card__price">R$ 128,00</span>
+                  <span class="product-card__pix">R$ 121,60 no Pix</span>
+                </div>
+                <button type="button" class="btn btn--buy">Comprar</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="batizado" aria-labelledby="batizado-title" hidden>
+        <div class="container vale-presente__inner">
+          <h2 id="batizado-title" class="section__title">Batizado</h2>
+          <p class="vale-presente__text">
+            Lembrancinhas e peças sob encomenda para batizado, feitas à mão no estúdio. Combinamos desenho, cores e
+            prazos com calma — fale com a gente para montar o seu pedido.
+          </p>
+          <div class="vale-presente__actions">
+            <a
+              class="btn btn--buy"
+              href="https://wa.me/5538997351632?text=Ol%C3%A1%21%20Quero%20or%C3%A7amento%20para%20lembrancinhas%20de%20batizado%20%28AZORDE%29."
+              >WhatsApp</a
+            >
+            <a class="btn btn--outline" href="mailto:azorde.estudio@gmail.com?subject=Batizado%20-%20AZORDE"
+              >E-mail</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="pecas-corporativas" aria-labelledby="pecas-corporativas-title" hidden>
+        <div class="container vale-presente__inner">
+          <h2 id="pecas-corporativas-title" class="section__title">Peças corporativas</h2>
+          <p class="vale-presente__text">
+            Brindes, troféus e conjuntos em cerâmica com identidade da sua marca ou evento. Desenvolvimento junto ao
+            estúdio, da ideia à entrega — valores sob consulta.
+          </p>
+          <div class="vale-presente__actions">
+            <a
+              class="btn btn--buy"
+              href="https://wa.me/5538997351632?text=Ol%C3%A1%21%20Quero%20falar%20sobre%20pe%C3%A7as%20corporativas%20%28AZORDE%29."
+              >WhatsApp</a
+            >
+            <a
+              class="btn btn--outline"
+              href="mailto:azorde.estudio@gmail.com?subject=Pe%C3%A7as%20corporativas%20-%20AZORDE"
+              >E-mail</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt sobre" id="sobre" aria-labelledby="sobre-title">
+        <div class="container sobre__grid">
+          <figure class="sobre__figure">
+            <img
+              class="sobre__photo"
+              src="assets/sobre-isabela-malheiros.png"
+              width="720"
+              height="960"
+              alt="Isabela Malheiros no ateliê Azorde, com peças de cerâmica na bancada e prateleiras ao fundo."
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <div class="sobre__prose">
+            <h2 id="sobre-title" class="section__title">Sobre mim</h2>
+            <p class="sobre__text">
+              O Azorde é o ateliê de cerâmica de Isabela Malheiros, onde arte, design e sensibilidade se encontram.
+            </p>
+            <p class="sobre__text">
+              O nome nasce de uma expressão simples e cheia de significado — “às ordens” — ouvida de forma espontânea no
+              cotidiano. No Azorde, ela ganha um novo sentido: o fazer manual como gesto de disponibilidade, cuidado e
+              presença.
+            </p>
+            <p class="sobre__text">
+              Com um olhar que transita entre o artístico e o funcional, o ateliê desenvolve peças autorais feitas à mão,
+              pensadas para o uso cotidiano e cheias de significado.
+            </p>
+            <p class="sobre__text">
+              Além das criações, o Azorde também oferece workshops presenciais, proporcionando experiências criativas para
+              quem deseja explorar a cerâmica de forma leve e acessível — mesmo sem experiência prévia.
+            </p>
+            <p class="sobre__text">
+              Mais do que objetos, o Azorde propõe momentos de pausa, expressão e conexão, convidando você a criar e levar
+              para casa algo único: feito por você.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt vale-presente" id="vale-presente" aria-labelledby="vale-presente-title">
+        <div class="container vale-presente__inner">
+          <h2 id="vale-presente-title" class="section__title">Vale presente</h2>
+          <p class="vale-presente__text">
+            Presenteie com peças de cerâmica ou com uma experiência nas oficinas. Montamos o valor, a mensagem e o
+            envio com você — fale com o estúdio.
+          </p>
+          <div class="vale-presente__actions">
+            <a
+              class="btn btn--buy"
+              href="https://wa.me/5538997351632?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20sobre%20vale%20presente%20%28AZORDE%29."
+              >Pedir pelo WhatsApp</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="cursos" aria-labelledby="cursos-title">
+        <div class="container">
+          <div class="section__head section__head--cursos">
+            <div class="section__head--cursos__row">
+              <h2 id="cursos-title" class="section__title">Cursos no estúdio</h2>
+              <a href="#contato" class="link-arrow">Tirar dúvidas</a>
+            </div>
+            <p class="section__intro">
+              Cada peça é totalmente artesanal, feita à mão do início ao fim, o que torna cada criação única e cheia de
+              significado — um reflexo de quem a produziu. Após passar por todas as etapas, como a queima e a esmaltação,
+              sua peça estará finalizada e pronta para você levar para casa.
+            </p>
+          </div>
+
+          <div id="cursos-lista" class="cursos-dinamico"></div>
+
+          <div hidden>
+            <h3 class="course-grid__title">Outras formações</h3>
+            <div class="course-grid">
+              <article class="course-card">
+                <div class="course-card__media">
+                  <span class="course-card__badge">Presencial</span>
+                  <img
+                    src="https://images.unsplash.com/photo-1452860606241-08ddf5b433f6?w=600&q=80"
+                    alt="Mãos modelando argila no torno"
+                    width="480"
+                    height="320"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="course-card__body">
+                  <h3 class="course-card__title">Introdução ao torno elétrico</h3>
+                  <p class="course-card__meta">12 horas · máx. 6 pessoas · material incluso</p>
+                  <p class="course-card__date">Próxima turma: março/2026</p>
+                  <div class="course-card__prices">
+                    <span class="course-card__price">R$ 890,00</span>
+                    <span class="course-card__pix">R$ 845,50 no Pix</span>
+                  </div>
+                  <a href="#inscricao-torno" class="btn btn--buy">Inscrever-se</a>
+                </div>
+              </article>
+              <article class="course-card">
+                <div class="course-card__media">
+                  <span class="course-card__badge">Presencial</span>
+                  <img
+                    src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=80"
+                    alt="Peças de cerâmica em ateliê"
+                    width="480"
+                    height="320"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="course-card__body">
+                  <h3 class="course-card__title">Modelagem em placa — intensivo</h3>
+                  <p class="course-card__meta">8 horas · peça utilitária para levar</p>
+                  <p class="course-card__date">Lista de espera aberta</p>
+                  <div class="course-card__prices">
+                    <span class="course-card__price">R$ 620,00</span>
+                    <span class="course-card__pix">R$ 589,00 no Pix</span>
+                  </div>
+                  <a href="#inscricao-placa" class="btn btn--buy">Inscrever-se</a>
+                </div>
+              </article>
+              <article class="course-card">
+                <div class="course-card__media">
+                  <span class="course-card__badge course-card__badge--online">Online</span>
+                  <img
+                    src="https://images.unsplash.com/photo-1603561596112-0a132b757442?w=600&q=80"
+                    alt="Detalhe de superfície esmaltada em cerâmica"
+                    width="480"
+                    height="320"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="course-card__body">
+                  <h3 class="course-card__title">Esmaltes minerais na prática</h3>
+                  <p class="course-card__meta">4 encontros ao vivo · gravação por 90 dias</p>
+                  <p class="course-card__date">Início contínuo</p>
+                  <div class="course-card__prices">
+                    <span class="course-card__price">R$ 397,00</span>
+                    <span class="course-card__pix">R$ 377,15 no Pix</span>
+                  </div>
+                  <a href="#inscricao-esmalte" class="btn btn--buy">Inscrever-se</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits" aria-labelledby="ben-title" hidden>
+        <div class="container">
+          <h2 id="ben-title" class="visually-hidden">Benefícios</h2>
+          <ul class="benefits__list">
+            <li class="benefits__item">
+              <span class="benefits__icon" aria-hidden="true">◇</span>
+              <strong>Envio para todo o Brasil</strong>
+              <span>Embalagem reforçada para peças frágeis chegarem com segurança.</span>
+            </li>
+            <li class="benefits__item">
+              <span class="benefits__icon" aria-hidden="true">◆</span>
+              <strong>Compra segura</strong>
+              <span>Checkout protegido para peças e inscrições em cursos.</span>
+            </li>
+            <li class="benefits__item">
+              <span class="benefits__icon" aria-hidden="true">○</span>
+              <strong>Atendimento do estúdio</strong>
+              <span>Tiramos dúvidas sobre medidas, uso em forno e turmas.</span>
+            </li>
+            <li class="benefits__item">
+              <span class="benefits__icon" aria-hidden="true">□</span>
+              <strong>Pagamento via Pix e cartão</strong>
+              <span>Pix com desconto e parcelamento no cartão.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contato">
+      <div class="container site-footer__grid">
+        <div class="site-footer__brand">
+          <a href="/" class="logo logo--footer" aria-label="AZORDE Estúdio — Página inicial">
+            <img
+              class="logo__img"
+              src="assets/logo-azorde-estudio.png"
+              width="126"
+              height="35"
+              alt="AZORDE Estúdio"
+            />
+          </a>
+          <p class="site-footer__tagline">
+            Cerâmica artesanal, mesa com alma e cursos para quem quer aprender com calma.
+          </p>
+        </div>
+        <div>
+          <h3 class="site-footer__heading">Institucional</h3>
+          <ul class="site-footer__links">
+            <li><a href="#sobre">Sobre mim</a></li>
+            <li><a href="#vale-presente">Vale presente</a></li>
+            <li><a href="#cursos">Oficinas</a></li>
+            <li><a href="#politica">Política de privacidade</a></li>
+            <li><a href="#trocas">Trocas e devoluções</a></li>
+            <li><a href="#termos">Termos de uso</a></li>
+            <li><a href="/adm/">Área administrativa</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="site-footer__heading">Atendimento</h3>
+          <ul class="site-footer__links">
+            <li><a href="mailto:azorde.estudio@gmail.com">azorde.estudio@gmail.com</a></li>
+            <li>
+              <a href="https://wa.me/5538997351632" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/azorde.estudio/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Instagram</a
+              >
+            </li>
+            <li>Seg. a sex. · 9h às 18h</li>
+          </ul>
+          <div class="site-footer__social" aria-label="Instagram">
+            <a
+              class="site-footer__social-link site-footer__social-link--instagram"
+              href="https://www.instagram.com/azorde.estudio/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram — AZORDE Estúdio"
+            >
+              <svg class="site-footer__social-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                <path
+                  fill="currentColor"
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.74 0 8.333.015 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 1-2.881 0 1.44 1.44 0 0 1 2.881 0z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3 class="site-footer__heading">Pagamento</h3>
+          <p class="site-footer__pay">Pix · Visa · Mastercard · Elo · Boleto</p>
+          <p class="site-footer__small">Valores e turmas ilustrativos. Fotos meramente referenciais.</p>
+        </div>
+      </div>
+      <div class="site-footer__bar">
+        <div class="container site-footer__bar-inner">
+          <p>© <span id="year"></span> AZORDE Estúdio. Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <dialog class="enroll-modal" id="enroll-modal" aria-labelledby="enroll-modal-title">
+      <div class="enroll-modal__inner">
+        <h2 id="enroll-modal-title" class="enroll-modal__title">Inscrição no curso</h2>
+        <form class="enroll-modal__form" id="enroll-form" novalidate>
+          <div class="enroll-modal__summary">
+            <p class="enroll-modal__summary-row">
+              <span class="enroll-modal__summary-label">Curso</span>
+              <span class="enroll-modal__summary-value" id="enroll-summary-course"></span>
+            </p>
+            <p class="enroll-modal__summary-row">
+              <span class="enroll-modal__summary-label">Turma</span>
+              <span class="enroll-modal__summary-value" id="enroll-summary-turma"></span>
+            </p>
+          </div>
+
+          <input type="hidden" id="enroll-curso-id" name="cursoId" value="" />
+          <input type="hidden" id="enroll-turma-id" name="turmaId" value="" />
+
+          <div class="enroll-modal__field">
+            <label class="enroll-modal__label" for="enroll-nome">Nome</label>
+            <input
+              class="enroll-modal__input"
+              type="text"
+              id="enroll-nome"
+              name="nome"
+              autocomplete="name"
+              required
+            />
+          </div>
+          <div class="enroll-modal__field">
+            <label class="enroll-modal__label" for="enroll-telefone">Telefone</label>
+            <input
+              class="enroll-modal__input"
+              type="tel"
+              id="enroll-telefone"
+              name="telefone"
+              inputmode="numeric"
+              autocomplete="tel"
+              placeholder="(00) 00000-0000"
+              required
+            />
+          </div>
+          <div class="enroll-modal__field">
+            <label class="enroll-modal__label" for="enroll-email">E-mail</label>
+            <input
+              class="enroll-modal__input"
+              type="email"
+              id="enroll-email"
+              name="email"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <div class="enroll-modal__pix" role="group" aria-labelledby="enroll-pix-label">
+            <p id="enroll-pix-label" class="enroll-modal__pix-label">Chave Pix</p>
+            <p class="enroll-modal__pix-key">
+              <span class="enroll-modal__pix-digits" id="enroll-pix-value">38997351632</span>
+              <button type="button" class="enroll-modal__pix-copy" id="enroll-pix-copy" aria-label="Copiar chave Pix">
+                Copiar
+              </button>
+            </p>
+          </div>
+
+          <div class="enroll-modal__field">
+            <label class="enroll-modal__label" for="enroll-comprovante">Comprovante de pagamento</label>
+            <input
+              class="enroll-modal__file"
+              type="file"
+              id="enroll-comprovante"
+              name="comprovante"
+              accept="image/*,.pdf,application/pdf"
+              required
+            />
+            <p class="enroll-modal__hint">Envie imagem ou PDF do comprovante (máx. 5&nbsp;MB).</p>
+            <p class="enroll-modal__hint enroll-modal__hint--mailto">
+              Os dados e o comprovante são enviados ao estúdio e ficam registrados para conferência do pagamento.
+            </p>
+          </div>
+
+          <p
+            class="enroll-modal__feedback"
+            id="enroll-feedback"
+            role="status"
+            aria-live="polite"
+            hidden
+          ></p>
+
+          <div class="enroll-modal__actions">
+            <button type="button" class="btn btn--outline enroll-modal__btn-cancel" id="enroll-cancel">
+              Cancelar
+            </button>
+            <button type="submit" class="btn btn--buy enroll-modal__btn-submit" id="enroll-submit">
+              Confirmar inscrição
+            </button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+
+    <a
+      class="wa-float"
+      href="https://wa.me/5538997351632"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Conversar no WhatsApp"
+    >
+      <svg class="wa-float__icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false">
+        <path
+          fill="currentColor"
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+        />
+      </svg>
+    </a>
+
+    <script>
+      (function () {
+        if (window.AZORDE_API_BASE) return;
+        var p = window.location.protocol;
+        var host = window.location.hostname;
+        var port = window.location.port;
+        if (p === "file:") {
+          window.AZORDE_API_BASE = "http://localhost:3000";
+        } else if (port && port !== "80" && port !== "443") {
+          window.AZORDE_API_BASE =
+            window.location.protocol + "//" + host + ":3000";
+        } else {
+          window.AZORDE_API_BASE = window.location.origin + "/api";
+        }
+      })();
+    </script>
+    <script src="js/main.js" defer></script>
+    <script src="js/courses.js" defer></script>
+  </body>
+</html>
