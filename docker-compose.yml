@@ -8,7 +8,7 @@ services:
       MYSQL_USER: ${MYSQL_USER:-azorde}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:-azorde}
     ports:
-      - "${MYSQL_PORT:-3306}:3306"
+      - "${MYSQL_PORT:-3308}:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:
@@ -18,29 +18,29 @@ services:
       retries: 12
       start_period: 20s
 
-  api:
+  backend:
     build:
-      context: ./api
+      context: ./backend
       dockerfile: Dockerfile
     restart: unless-stopped
     ports:
-      - "${API_PORT:-3000}:3000"
+      - "${API_PORT:-8000}:8000"
     environment:
-      PORT: 3000
-      DATABASE_HOST: mysql
-      DATABASE_PORT: 3306
-      DATABASE_USER: ${MYSQL_USER:-azorde}
-      DATABASE_PASSWORD: ${MYSQL_PASSWORD:-azorde}
-      DATABASE_NAME: ${MYSQL_DATABASE:-azorde}
-      UPLOAD_DEST: /app/uploads
-      TYPEORM_SYNC: "true"
-      TYPEORM_LOGGING: "false"
-      JWT_SECRET: ${JWT_SECRET:-azorde-jwt-altere-em-producao}
-      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
-      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin123}
-      SEED_ON_START: "true"
+      APP_NAME: AZORDE
+      APP_ENV: local
+      APP_DEBUG: "true"
+      APP_KEY: base64:mY9YgWBNxOqPq+nnbywiWA7K3aZfIWqE61kxG5yrJDA=
+      APP_URL: http://localhost
+      DB_CONNECTION: mysql
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_DATABASE: ${MYSQL_DATABASE:-azorde}
+      DB_USERNAME: ${MYSQL_USER:-azorde}
+      DB_PASSWORD: ${MYSQL_PASSWORD:-azorde}
+      SESSION_DRIVER: file
+      CACHE_STORE: file
     volumes:
-      - uploads_data:/app/uploads
+      - backend_storage:/var/www/html/storage
     depends_on:
       mysql:
         condition: service_healthy
@@ -53,8 +53,8 @@ services:
     ports:
       - "${WEB_PORT:-80}:80"
     depends_on:
-      - api
+      - backend
 
 volumes:
   mysql_data:
-  uploads_data:
+  backend_storage:

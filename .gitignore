@@ -1,5 +1,5 @@
-api/node_modules/
-api/dist/
-api/uploads/
-api/.env
+backend/vendor/
+backend/.env
+backend/database/database.sqlite
+backend/storage/*.key
 .DS_Store
