@@ -8,5 +8,5 @@ services:
       - ./web/nginx.prod.conf:/etc/nginx/conf.d/default.conf:ro
   backend:
     environment:
-      APP_URL: https://52.70.7.30
+      APP_URL: https://azorde.com.br
       SESSION_SECURE_COOKIE: "true"
