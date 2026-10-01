@@ -10,3 +10,6 @@ services:
     environment:
       APP_URL: https://azorde.com.br
       SESSION_SECURE_COOKIE: "true"
+    volumes:
+      - ./backend/bootstrap/app.php:/var/www/html/bootstrap/app.php:ro
+      - ./backend/app/Providers/AppServiceProvider.php:/var/www/html/app/Providers/AppServiceProvider.php:ro
