@@ -1,4 +1,7 @@
 services:
+  mysql:
+    ports:
+      - "127.0.0.1:3306:3306"
   web:
     ports:
       - "443:443"
@@ -7,9 +10,10 @@ services:
       - /var/www/acme:/var/www/acme:ro
       - ./web/nginx.prod.conf:/etc/nginx/conf.d/default.conf:ro
   backend:
+    ports:
+      - "127.0.0.1:8000:8000"
     environment:
+      APP_ENV: production
+      APP_DEBUG: "false"
       APP_URL: https://azorde.com.br
       SESSION_SECURE_COOKIE: "true"
-    volumes:
-      - ./backend/bootstrap/app.php:/var/www/html/bootstrap/app.php:ro
-      - ./backend/app/Providers/AppServiceProvider.php:/var/www/html/app/Providers/AppServiceProvider.php:ro
