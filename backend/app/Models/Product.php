@@ -13,6 +13,9 @@ class Product extends Model
         'description',
         'price_cents',
         'weight_grams',
+        'length_cm',
+        'width_cm',
+        'height_cm',
         'image',
         'alt',
         'active',
@@ -27,6 +30,9 @@ class Product extends Model
             'featured' => 'boolean',
             'price_cents' => 'integer',
             'weight_grams' => 'integer',
+            'length_cm' => 'integer',
+            'width_cm' => 'integer',
+            'height_cm' => 'integer',
             'sort_order' => 'integer',
         ];
     }
@@ -49,10 +55,30 @@ class Product extends Model
             'name' => $this->name,
             'price' => $this->price_cents,
             'weight' => $this->weight_grams,
+            'length' => $this->length_cm,
+            'width' => $this->width_cm,
+            'height' => $this->height_cm,
             'image' => $this->imageUrl(),
             'alt' => $this->alt ?: $this->name,
             'featured' => $this->featured,
             'description' => $this->description,
         ];
+    }
+
+    public function packageLabel(): string
+    {
+        if (! $this->weight_grams && ! $this->length_cm && ! $this->width_cm && ! $this->height_cm) {
+            return 'Padrão do frete';
+        }
+
+        $parts = [];
+        if ($this->weight_grams) {
+            $parts[] = $this->weight_grams.' g';
+        }
+        if ($this->length_cm || $this->width_cm || $this->height_cm) {
+            $parts[] = ($this->length_cm ?: '—').'×'.($this->width_cm ?: '—').'×'.($this->height_cm ?: '—').' cm';
+        }
+
+        return implode(' · ', $parts) ?: 'Padrão do frete';
     }
 }

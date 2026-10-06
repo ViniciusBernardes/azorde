@@ -9,8 +9,7 @@ RUN apt-get update \
 WORKDIR /var/www/html
 
 COPY . .
-RUN composer install --no-dev --optimize-autoloader --no-interaction \
-    && chmod +x docker-entrypoint.sh
+RUN composer install --no-dev --optimize-autoloader --no-interaction
 
 EXPOSE 8000
-CMD ["./docker-entrypoint.sh"]
+CMD ["sh", "docker-entrypoint.sh"]

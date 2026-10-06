@@ -775,10 +775,26 @@ body.menu-open {
 }
 
 .piece__pix {
-  margin: 0 0 0.85rem;
+  margin: 0.15rem 0 0;
   text-align: center;
   color: var(--btn);
   font-size: 0.88rem;
+}
+
+.piece__ship {
+  margin: 0.2rem 0 0.85rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.piece__actions {
+  margin-top: 0.85rem;
+}
+
+.piece__ship + .piece__actions,
+.piece__ship + .btn {
+  margin-top: 0;
 }
 
 .shop--cart {

@@ -2,6 +2,7 @@
   var KEY = "azorde-cart";
   var products = [];
   var pixPercent = 5;
+  var shippingFrom = 0;
 
   function money(cents) {
     return (cents / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
@@ -88,6 +89,7 @@
     total: total,
     add: add,
     setQty: setQty,
+    shippingFrom: function () { return shippingFrom; },
     pix: function (cents) { return Math.round(cents * (100 - pixPercent) / 100); }
   };
 
@@ -108,6 +110,7 @@
       products.splice(0, products.length);
       list.forEach(function (product) { products.push(product); });
       if (payload && payload.pixPercent != null) pixPercent = Number(payload.pixPercent) || pixPercent;
+      if (payload && payload.shippingFromCents != null) shippingFrom = Math.max(0, Number(payload.shippingFromCents) || 0);
       window.AzordeStore.ready = true;
       paintCount();
       document.dispatchEvent(new CustomEvent("azorde:products"));

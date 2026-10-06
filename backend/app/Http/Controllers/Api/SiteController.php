@@ -14,7 +14,7 @@ class SiteController extends Controller
     public function show()
     {
         $settings = Setting::map();
-        foreach (array_merge(['correios_usuario', 'correios_cartao'], SiteFields::secrets()) as $secret) {
+        foreach (SiteFields::secrets() as $secret) {
             unset($settings[$secret]);
         }
         foreach (SiteFields::images() as $key) {

@@ -49,6 +49,11 @@
         .card { padding: 1.15rem 1.25rem 1.3rem; margin-bottom: 1rem; }
         .card h2 { margin: 0 0 .2rem; font-size: 1.05rem; font-weight: 600; }
         .card .hint { margin: 0 0 .4rem; color: var(--soft); font-size: .82rem; }
+        .field-grid { display: grid; gap: .85rem 1rem; margin-top: .35rem; }
+        .field-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .field-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .field-grid label { margin-top: 0; }
+        .form-actions { display: flex; gap: .55rem; flex-wrap: wrap; align-items: center; margin: .25rem 0 1.5rem; position: sticky; bottom: .75rem; padding: .75rem .9rem; background: rgba(255,252,248,.92); border: 1px solid var(--line); border-radius: 12px; backdrop-filter: blur(6px); }
         label { display: block; font-size: .8rem; font-weight: 500; margin: .85rem 0 .3rem; color: var(--ink); }
         input[type=text], input[type=email], input[type=password], input[type=number], input[type=file], textarea {
             width: 100%; padding: .7rem .8rem; border: 1px solid var(--line); border-radius: 8px; font: inherit; background: #fff; color: var(--ink);
@@ -67,7 +72,10 @@
         th, td { text-align: left; padding: .8rem .9rem; border-bottom: 1px solid var(--line); vertical-align: middle; }
         th { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--soft); font-weight: 600; }
         tr:last-child td { border-bottom: 0; }
+        .table-title { font-weight: 500; }
+        .meta { color: var(--muted); font-size: .86rem; white-space: nowrap; }
         .thumb { width: 52px; height: 68px; object-fit: cover; border-radius: 6px; background: #eee; }
+        .thumb--lg { width: 96px; height: 124px; margin-top: .65rem; display: block; }
         .content-preview { display: block; width: min(100%, 420px); height: 220px; object-fit: cover; border-radius: 10px; margin: .35rem 0 .55rem; background: #eee; }
         .status { background: var(--ok-bg); color: var(--ok); padding: .75rem .95rem; border-radius: 10px; margin-bottom: 1rem; }
         .error { color: #8a3b2c; font-size: .86rem; margin: .25rem 0 0; }
@@ -86,6 +94,10 @@
             .side nav a small, .side-foot { display: none; }
             .side nav a { white-space: nowrap; }
             .brand span { display: none; }
+            .field-grid--2, .field-grid--4 { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 520px) {
+            .field-grid--2, .field-grid--4 { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -100,7 +112,7 @@
         <nav>
             <a class="{{ request()->routeIs('admin.settings.*') ? 'is-active' : '' }}" href="{{ route('admin.settings.edit') }}">Conteúdo<small>Textos e contato</small></a>
             <a class="{{ request()->routeIs('admin.orders.*') ? 'is-active' : '' }}" href="{{ route('admin.orders.index') }}">Pedidos<small>Status e avisos</small></a>
-            <a class="{{ request()->routeIs('admin.products.*') ? 'is-active' : '' }}" href="{{ route('admin.products.index') }}">Produtos<small>Loja e carrinho</small></a>
+            <a class="{{ request()->routeIs('admin.products.*') ? 'is-active' : '' }}" href="{{ route('admin.products.index') }}">Produtos<small>Peso, volume e loja</small></a>
             <a class="{{ request()->routeIs('admin.steps.*') ? 'is-active' : '' }}" href="{{ route('admin.steps.index') }}">Processo<small>Etapas do ofício</small></a>
             <a class="{{ request()->routeIs('admin.gallery.*') ? 'is-active' : '' }}" href="{{ route('admin.gallery.index') }}">Galeria<small>Fotos do site</small></a>
         </nav>

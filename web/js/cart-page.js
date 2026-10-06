@@ -4,6 +4,15 @@
   var store = window.AzordeStore;
   var freight = { cep: "", quotes: [], selected: null, error: "", loading: false, signature: "" };
 
+  try {
+    var saved = JSON.parse(sessionStorage.getItem("azorde-frete") || "null");
+    if (saved && saved.cep) {
+      freight.cep = saved.cep;
+      freight.selected = saved.selected || null;
+      if (saved.quotes) freight.quotes = saved.quotes;
+    }
+  } catch (err) {}
+
   function signature(lines) {
     return lines.map(function (line) { return line.product.id + ":" + line.qty; }).join("|");
   }
@@ -16,6 +25,14 @@
       .replace(/"/g, "&quot;");
   }
 
+  function persist() {
+    sessionStorage.setItem("azorde-frete", JSON.stringify({
+      cep: freight.cep,
+      selected: freight.selected,
+      quotes: freight.quotes
+    }));
+  }
+
   function render() {
     var lines = store.lines();
     var nextSignature = signature(lines);
@@ -24,6 +41,7 @@
       freight.selected = null;
     }
     freight.signature = nextSignature;
+
     if (!lines.length) {
       root.innerHTML =
         '<div class="cart__empty">' +
@@ -40,16 +58,17 @@
     var pix = store.pix(subtotal) + shipping;
     var quoteHtml = "";
     if (freight.loading) {
-      quoteHtml = '<p class="cart__note">Consultando os Correios…</p>';
+      quoteHtml = '<p class="cart__note">Consultando o Melhor Envio…</p>';
     } else if (freight.error) {
-      quoteHtml = '<p class="cart__error">' + String(freight.error).replace(/</g, "") + "</p>";
+      quoteHtml = '<p class="cart__error">' + esc(freight.error) + "</p>";
     } else if (freight.quotes.length) {
       quoteHtml = '<div class="cart__quotes" role="radiogroup" aria-label="Opções de frete">' + freight.quotes.map(function (quote, index) {
-        var selected = freight.selected && freight.selected.code === quote.code;
+        var selected = freight.selected && String(freight.selected.code) === String(quote.code);
         var days = quote.days ? "até " + quote.days + (quote.days > 1 ? " dias úteis" : " dia útil") : "prazo a confirmar";
         return '<label class="cart__quote' + (selected ? " is-selected" : "") + '"><input type="radio" name="frete" value="' + index + '"' + (selected ? " checked" : "") + " /><span><strong>" + esc(quote.name) + "</strong><small>" + days + "</small></span><em>" + store.money(quote.price) + "</em></label>";
       }).join("") + "</div>";
     }
+
     var count = store.count();
     root.innerHTML =
       '<section class="cart__bag" aria-label="Peças do pedido">' +
@@ -89,7 +108,7 @@
             '<input id="cep-destino" name="cep" inputmode="numeric" autocomplete="postal-code" maxlength="9" placeholder="CEP 00000-000" value="' + esc(freight.cep) + '" />' +
             '<button type="submit" class="btn btn--quiet"' + (freight.loading ? " disabled" : "") + ">" + (freight.loading ? "Calculando" : "Calcular") + "</button>" +
           "</div>" +
-          '<p class="cart__hint">PAC e SEDEX pelos Correios, a partir do CEP.</p>' +
+          '<p class="cart__hint">PAC e SEDEX pelo Melhor Envio, conforme peso, volume e CEP.</p>' +
         "</form>" +
         quoteHtml +
         '<dl class="cart__totals">' +
@@ -100,7 +119,7 @@
         '<p class="cart__pix">No Pix: <strong>' + (freight.selected ? store.money(pix) : store.money(store.pix(subtotal))) + "</strong><span>desconto só nas peças</span></p>" +
         '<a class="btn" href="/conta/finalizar">Concluir pedido</a>' +
         '<a class="btn btn--ghost" id="cart-whatsapp" href="#">Enviar pelo WhatsApp</a>' +
-        '<p class="cart__note">Os valores das peças são ilustrativos. O frete exibido é o calculado pelos Correios.</p>' +
+        '<p class="cart__note">O frete é cotado pelo Melhor Envio no momento da compra.</p>' +
       "</aside>";
 
     var link = document.getElementById("cart-whatsapp");
@@ -124,6 +143,7 @@
       freight.error = "";
       freight.quotes = [];
       freight.selected = null;
+      persist();
       render();
       fetch("/api/frete", {
         method: "POST",
@@ -141,7 +161,7 @@
         freight.quotes = body.quotes || [];
         freight.selected = freight.quotes[0] || null;
         freight.loading = false;
-        sessionStorage.setItem("azorde-frete", JSON.stringify({ cep: freight.cep, selected: freight.selected }));
+        persist();
         render();
       }).catch(function (error) {
         freight.loading = false;
@@ -153,7 +173,7 @@
     root.querySelectorAll('input[name="frete"]').forEach(function (input) {
       input.addEventListener("change", function () {
         freight.selected = freight.quotes[Number(input.value)] || null;
-        sessionStorage.setItem("azorde-frete", JSON.stringify({ cep: freight.cep, selected: freight.selected }));
+        persist();
         render();
       });
     });

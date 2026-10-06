@@ -100,11 +100,15 @@
 
       var pieces = document.querySelector("#pecas .pieces");
       var store = window.AzordeStore;
-      if (pieces && data.featured && data.featured.length && store) {
+      function paintFeatured() {
+        if (!pieces || !data.featured || !data.featured.length || !store) return;
+        var shipping = store.shippingFrom ? store.shippingFrom() : 0;
         pieces.innerHTML = data.featured.map(function (product) {
-          return '<article class="piece"><a class="piece__media" href="/produtos/"><img src="' + esc(product.image) + '" alt="' + esc(product.alt) + '"></a><h2 class="piece__name"><a href="/produtos/">' + esc(product.name) + "</a></h2><p class=\"piece__price\">" + store.money(product.price) + '</p><button type="button" class="btn" data-add="' + esc(product.id) + '">Adicionar</button></article>';
+          return '<article class="piece"><a class="piece__media" href="/produtos/"><img src="' + esc(product.image) + '" alt="' + esc(product.alt) + '"></a><h2 class="piece__name"><a href="/produtos/">' + esc(product.name) + "</a></h2><p class=\"piece__price\">" + store.money(product.price) + "</p>" + (shipping > 0 ? '<p class="piece__ship">Frete a partir de ' + store.money(shipping) + "</p>" : "") + '<button type="button" class="btn" data-add="' + esc(product.id) + '">Adicionar</button></article>';
         }).join("");
       }
+      paintFeatured();
+      document.addEventListener("azorde:products", paintFeatured);
     })
     .catch(function () {});
 })();

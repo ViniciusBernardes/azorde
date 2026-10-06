@@ -32,15 +32,14 @@ class SiteFields
             'whatsapp' => ['WhatsApp (só números, com DDD e país)', 'text'],
             'footer_tagline' => ['Frase do rodapé', 'text'],
             'pix_percent' => ['Desconto no Pix (%)', 'text'],
+            'frete_aproximado' => ['Frete aproximado na vitrine (R$)', 'text'],
             'cep_origem' => ['CEP de origem (só números)', 'text'],
-            'correios_usuario' => ['Usuário Meu Correios', 'text'],
-            'correios_codigo' => ['Código de acesso', 'secret'],
-            'correios_cartao' => ['Cartão de postagem', 'text'],
-            'correios_servicos' => ['Serviços (códigos separados por vírgula)', 'text'],
-            'peso_padrao_gramas' => ['Peso padrão de cada peça (gramas)', 'text'],
-            'caixa_comprimento' => ['Caixa — comprimento (cm)', 'text'],
-            'caixa_largura' => ['Caixa — largura (cm)', 'text'],
-            'caixa_altura' => ['Caixa — altura (cm)', 'text'],
+            'melhor_envio_token' => ['Token Melhor Envio', 'secret'],
+            'melhor_envio_servicos' => ['Serviços (1=PAC, 2=SEDEX)', 'text'],
+            'peso_padrao_gramas' => ['Peso padrão se a peça não tiver (g)', 'text'],
+            'caixa_comprimento' => ['Caixa padrão — comprimento (cm)', 'text'],
+            'caixa_largura' => ['Caixa padrão — largura (cm)', 'text'],
+            'caixa_altura' => ['Caixa padrão — altura (cm)', 'text'],
         ];
     }
 

@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Services\CorreiosFreight;
+use App\Services\MelhorEnvioFreight;
 use Illuminate\Http\Request;
 use RuntimeException;
 
 class FreightController extends Controller
 {
-    public function store(Request $request, CorreiosFreight $correios)
+    public function store(Request $request, MelhorEnvioFreight $freight)
     {
         $data = $request->validate([
             'cep' => ['required', 'string'],
@@ -21,7 +21,7 @@ class FreightController extends Controller
         $cep = preg_replace('/\D/', '', $data['cep']) ?? '';
 
         try {
-            $quotes = $correios->quote($cep, $data['items']);
+            $quotes = $freight->quote($cep, $data['items']);
         } catch (RuntimeException $exception) {
             return response()->json(['message' => $exception->getMessage()], 422);
         }
